@@ -1,0 +1,44 @@
+// Abstract
+@import "../helpers";
+@import "../helpers/colors";
+
+// Components
+@import "backgrounds";
+@import "tables";
+@import "grid";
+@import "alerts";
+@import "images";
+@import "overlays";
+@import "badges";
+@import "shadows";
+@import "borders";
+@import "buttons";
+@import "texts";
+@import "cards-boxes";
+@import "global";
+@import "sizes";
+@import "fonts";
+
+.table-modern {
+    tbody {
+        td,
+        th {
+            border-bottom: 1px solid #f5f6fa !important;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            line-height: 60px;
+        }
+        background-color: #fff;
+        tr {
+            transition: background-color 0.2s linear;
+
+            &:hover {
+                background-color: var(--background);
+            }
+        }
+    }
+
+    .border-b:last-of-type {
+        border-bottom: none !important;
+    }
+}

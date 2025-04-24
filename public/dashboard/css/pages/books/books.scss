@@ -1,0 +1,24 @@
+@import "../../helpers";
+
+.search-sticky {
+    position: sticky;
+    top: calc(var(--navbar-height) + 15px);
+}
+
+@include media(sm) {
+    .book-box {
+        h3,
+        p {
+            //text-align: center;
+        }
+        .book-cover {
+            background-color: rgb(240, 240, 240);
+            text-align: center;
+            padding: 10px 0px;
+            img {
+                width: 50%;
+                box-shadow: 0px 0px 10px #ddd;
+            }
+        }
+    }
+}

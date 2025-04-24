@@ -1,0 +1,24 @@
+/*
+ |
+ | Font Size
+ |
+*/
+$size: 8;
+@for $i from 7 through 60 {
+    .font-#{$size + 1} {
+        font-size: $size + 1px !important;
+    }
+    $size: $size + 1;
+}
+
+/*
+ |
+ | Font Weight
+ |
+*/
+$weights: (100, 200, 300, 400, 500, 600, 700, 800, 900);
+@each $weight in $weights {
+    .font-weight-#{$weight} {
+        font-weight: $weight !important;
+    }
+}

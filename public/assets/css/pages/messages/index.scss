@@ -1,0 +1,129 @@
+// header {
+//     $headerH: 30vh;
+//     position: relative;
+//     height: $headerH;
+//     background-image: url(../../../images/blog-bg.jpg);
+//     background-repeat: no-repeat;
+//     background-size: cover;
+//     background-position: center top;
+
+//     .overlay {
+//         position: absolute;
+//         top: 0;
+//         left: 0;
+//         width: 100%;
+//         height: 100%;
+//         background-color: rgba(0, 0, 0, 0.7); // Adjust opacity as needed
+//         z-index: 2;
+//     }
+
+//     h1{
+//         position: relative;
+//         z-index: 3;
+//         font-size: 46px;
+//     }
+
+// }
+
+.dark {
+    input {
+        background-color: #1d1d1d !important;
+        color: #d7d7d7  !important;
+    }
+}
+form {
+    $inputH: 55px;
+    input {
+        height: $inputH !important;
+        padding: 10px 16px;
+        font-size: 16px;
+        width: 100%;
+        border-radius: 100px;
+        border: none;
+        background-color: #f9f9ff;
+        border: solid 1px transparent;
+
+        &:focus {
+            border: solid 1px var(--brand-color);
+        }
+    }
+
+    .form-group {
+        position: relative;
+        // .icon-search {
+        //     position: absolute;
+        //     top: 12px;
+        //     right: 20px;
+        //     font-size: 22px;
+        //     color: #6d6d6d;
+        // }
+
+        button {
+            position: absolute;
+            left: 5px;
+            top: 5px;
+            width: 45px;
+            height: calc($inputH - 10px);
+            background-color: var(--brand-color);
+            color: var(--color-on-brand-main-color);
+            outline: none;
+            border: none;
+            border-radius: 100px;
+        }
+    }
+}
+
+body {
+    padding-top: 20px;
+}
+h1 {
+    font-size: 20px;
+}
+
+.widgets-sticky {
+    position: sticky;
+    top: calc(var(--navbar-height) + 15px);
+    margin-bottom: 105px;
+}
+.book-card {
+    margin-bottom: 30px !important;
+    position: relative;
+    overflow: hidden;
+
+
+    .notfound-badge{
+        position: absolute;
+        top: 15px;
+        background-color: rgb(238, 0, 0);
+        color: #fff;
+        padding: 3px 0px;
+        width: 200px;
+        text-align: center;
+        transform: rotate(-30deg);
+        left: -60px;
+        font-size: 14px;
+        z-index: 1;
+    }
+    .book-content {
+
+        h2 {
+            font-size: 17px;
+            padding-top: 20px;
+        }
+        p {
+            font-size: 16px;
+        }
+        .btn-custom {
+            font-size: 13px;
+        }
+    }
+    &,
+    img,
+    .book-content {
+        border-radius: 20px;
+    }
+    img {
+        width: 100%;
+        object-fit: cover;
+    }
+}

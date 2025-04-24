@@ -1,0 +1,16 @@
+.search-sticky {
+  position: sticky;
+  top: calc(var(--navbar-height) + 15px);
+}
+
+@media (max-width: 576px) {
+  .book-box .book-cover {
+    background-color: rgb(240, 240, 240);
+    text-align: center;
+    padding: 10px 0px;
+  }
+  .book-box .book-cover img {
+    width: 50%;
+    box-shadow: 0px 0px 10px #ddd;
+  }
+}/*# sourceMappingURL=books.css.map */

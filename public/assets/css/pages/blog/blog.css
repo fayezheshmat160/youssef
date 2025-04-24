@@ -1,0 +1,28 @@
+body {
+  padding-top: 20px;
+}
+
+h1 {
+  font-size: 20px;
+}
+
+.widgets-sticky {
+  position: sticky;
+  top: calc(var(--navbar-height) + 15px);
+  margin-bottom: 105px;
+}
+
+.post-card {
+  margin-bottom: 30px !important;
+  height: 475px;
+}
+.post-card h5 {
+  font-size: 18px;
+  margin-top: 20px;
+}
+.post-card .post-card-image {
+  box-shadow: none !important;
+  margin-top: 0px !important;
+  text-align: center;
+  margin-bottom: 10px;
+}/*# sourceMappingURL=blog.css.map */

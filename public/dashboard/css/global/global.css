@@ -1,0 +1,232 @@
+/*
+    // File Map
+    - Global
+    - Custom
+    - Components
+    - pagination custom for laravel
+    - buttons-bar ( add new , draft..) buttons
+*/
+/*
+|
+|
+| Global
+|
+|
+*/
+input[type=checkbox] {
+  vertical-align: middle;
+}
+
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  transition: padding 0.3s linear;
+  background-color: var(--background);
+  color: var(--color);
+}
+
+td {
+  border: var(--border) solid 1px !important;
+}
+
+button {
+  outline: none;
+  border: 0px;
+  background-color: transparent;
+}
+button:disabled {
+  cursor: not-allowed;
+}
+
+a {
+  text-decoration: none !important;
+}
+
+hr {
+  border-top: 1px solid var(--border-color);
+}
+
+.display-none {
+  display: none;
+}
+
+.ltr {
+  direction: ltr;
+}
+
+/*
+|
+|
+| Components
+|
+|
+*/
+.panel-with-heading {
+  padding: 1rem 2rem;
+}
+.panel-with-heading .box-title {
+  font-size: 18px;
+}
+.panel-with-heading .box-body,
+.panel-with-heading .box-title {
+  padding: 0.3rem 2rem !important;
+}
+
+.table-modern tbody {
+  background-color: #fff;
+}
+.table-modern tbody td,
+.table-modern tbody th {
+  border-bottom: 1px solid #f5f6fa !important;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  line-height: 60px;
+}
+.table-modern tbody tr {
+  transition: background-color 0.2s linear;
+}
+.table-modern tbody tr:hover {
+  background-color: var(--background);
+}
+.table-modern .border-b:last-of-type {
+  border-bottom: none !important;
+}
+
+.li-inside {
+  list-style-position: inside;
+}
+
+.error {
+  color: #ff0000;
+  display: block;
+  border-radius: var(--border-radius);
+  margin-top: 3px;
+  font-size: 14px;
+}
+
+#links-bar {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+#links-bar a {
+  font-size: 18px;
+  color: var(--main-color);
+  font-weight: 300;
+}
+#links-bar .links-bar-item-slash {
+  margin: 0px 3px;
+}
+#links-bar a:first-child {
+  font-size: 26px !important;
+  color: var(--color);
+  margin-bottom: 0px;
+  font-weight: 500;
+}
+
+.btn-add-new {
+  padding: 3px 10px;
+  margin-top: 25px;
+  font-size: 14px;
+}
+
+.active-link {
+  color: var(--main-color);
+}
+
+.submit-spinner {
+  border: 0.2em solid var(--btn-main-color);
+  border-right-color: transparent;
+}
+
+/*
+|
+|
+| Inputs
+|
+|
+*/
+input[type=submit] {
+  border: 0px;
+}
+
+input:-moz-read-only {
+  background-color: var(--input-focus-background) !important;
+  cursor: not-allowed;
+}
+
+input:read-only {
+  background-color: var(--input-focus-background) !important;
+  cursor: not-allowed;
+}
+
+input[type=file],
+[type=checkbox],
+input[type=color] {
+  opacity: 1 !important;
+  cursor: pointer !important;
+  background-color: var(--input-background) !important;
+}
+
+/*
+|
+|
+| pagination custom for laravel
+|
+|
+*/
+.pagination li a {
+  background-color: var(--card-background);
+  padding: 9px 15px;
+  border-radius: var(--border-radius);
+  color: var(--card-color);
+  transition: all 0.1s linear;
+}
+.pagination li a:hover {
+  background-color: var(--btn-main-background);
+  color: var(--btn-main-color);
+}
+.pagination .pages {
+  margin: 0px 8px;
+}
+
+/*
+|
+|
+| buttons-bar ( add new , draft..) buttons
+|
+|
+*/
+#publish-buttons-bar {
+  position: fixed;
+  width: 100%;
+  bottom: 0px;
+  right: 0px;
+  left: 0px;
+  background-color: var(--card-background);
+  z-index: 9;
+  padding: 12px 15px;
+  box-shadow: var(--card-shadow);
+  text-align: left;
+}
+
+.table thead th {
+  border-bottom: 1px solid var(--border-color) !important;
+  border-top: none;
+}
+
+th,
+td {
+  white-space: nowrap;
+}
+
+.text-wrap {
+  white-space: normal !important;
+}/*# sourceMappingURL=global.css.map */

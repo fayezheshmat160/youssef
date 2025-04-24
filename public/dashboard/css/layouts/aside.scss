@@ -1,0 +1,172 @@
+/*
+    Aside Bar Style
+*/
+
+#aside {
+    background-color: var(--aside-background);
+    width: var(--aside-width);
+    height: 100vh;
+    position: fixed;
+    top: 0px;
+    bottom: 0px;
+    z-index: 999;
+    z-index: 1000;
+    box-shadow: 0px var(--navbar-height) 10px rgba(0, 0, 0, 0.05);
+    padding-top: calc(var(--navbar-height) + 5px);
+    .aside-brand {
+        padding: 8px 12px;
+        height: calc(var(--navbar-height) - 1px);
+        position: fixed;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.02);
+        top: 0px;
+        width: var(--aside-width);
+        background-color: var(--aside-background);
+        z-index: 1000;
+        text-align: center;
+        img {
+            width: calc(var(--aside-width) / 2);
+            height: 100%;
+            object-fit: contain;
+        }
+        .name {
+            color: var(--navbar-color);
+            opacity: 0.8;
+            margin: 0px 8px;
+        }
+    }
+
+    li {
+        list-style: none !important;
+    }
+
+    // ul li a
+    .side-menu {
+        padding: 0px 10px;
+        .side-item-category {
+            color: var(--aside-color);
+            margin: 10px 5px;
+            letter-spacing: 0.05em;
+            opacity: 0.7;
+            cursor: default;
+            font-size: 11px;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+        .side-item {
+            a {
+                cursor: pointer;
+                display: block;
+                padding: 12px 15px;
+                position: relative;
+                font-size: 0.9375rem;
+                margin-bottom: 1px;
+
+                transition: background-color 0.3s linear;
+                border-radius: var(--border-radius);
+                span {
+                    color: var(--aside-color);
+                    transition: color 0.3s linear;
+                }
+
+                &:hover {
+                    background-color: var(--aside-link-hover-background);
+                }
+                &:hover span {
+                    color: var(--aside-link-hover-color);
+                }
+                .arrow-icon {
+                    line-height: 20px;
+                    font-size: 13px;
+                    padding-top: 2px;
+                    transition: all 0.1s linear;
+                }
+                .rotate-icon {
+                    transform: rotate(0deg) !important;
+                }
+                .side-icon {
+                    display: inline-block;
+                    width: 15px;
+                    text-align: center;
+                }
+            }
+            // Active Link
+            .active {
+                span,
+                a,
+                i,
+                svg {
+                    color: var(--aside-link-active-color) !important;
+                }
+                // Solid Style Before Link
+                background-color: var(--aside-link-active-background) !important;
+            }
+
+            // Sub Menu
+            .sub-menu {
+                display: none;
+
+                .sub-item {
+                    a {
+                        font-size: 0.813rem;
+                        padding: 7px 12px;
+                    }
+                }
+            }
+            .show {
+                display: block;
+            }
+        }
+    }
+
+    // Inputs Search
+    #aside-form {
+        input {
+            margin-top: 12px;
+        }
+        .form-control {
+            background-color: var(--aside-background);
+            border: 1px solid var(--aside-color);
+            color: var(--aside-color);
+        }
+    }
+
+    /* Scroll */
+    overflow-x: hidden !important;
+    overflow-y: scroll !important;
+
+    &::-webkit-scrollbar {
+        width: 4px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: var(--color-second);
+        border-radius: var(--border-radius);
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+        background: var(--aside-color);
+    }
+}
+
+.show-scroll {
+    &::-webkit-scrollbar-track {
+        background: var(--aside-background);
+    }
+}
+@media (max-width: 1024px) {
+    .aside-overlay {
+        background-color: rgba(0, 0, 0, 0.5) !important;
+        position: fixed;
+        top: 0px;
+        bottom: 0px;
+        right: 0px;
+        left: 0px;
+        width: 100%;
+        display: none;
+        z-index: 999;
+    }
+}

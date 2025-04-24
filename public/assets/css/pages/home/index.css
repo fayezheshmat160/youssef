@@ -1,0 +1,256 @@
+#home-header {
+  position: relative;
+  height: 65vh;
+  background-image: url(../../../images/5924.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+#home-header .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 9;
+}
+#home-header .header-content {
+  position: absolute;
+  inset: 0px !important;
+  height: 100%;
+  width: 100%;
+  z-index: 10;
+}
+#home-header .header-content .content {
+  display: none;
+}
+#home-header .header-content .content .title {
+  font-size: 42px !important;
+  font-weight: bold;
+}
+#home-header .header-content .content .title,
+#home-header .header-content .content p {
+  text-align: center;
+  color: #fff;
+}
+#home-header .header-content .content p {
+  margin-top: 15px;
+  font-size: 22px;
+  color: #e3e3e3 !important;
+}
+#home-header .header-content .active {
+  display: block;
+}
+#home-header .header-content .animation-up {
+  animation: slideInUp 1s ease-in-out;
+}
+@keyframes slideInUp {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+#home-header form input {
+  height: 55px;
+  padding: 10px 16px;
+  font-size: 18px;
+  padding-right: 55px;
+  border-radius: 100px;
+  border: none;
+}
+#home-header form .form-group {
+  position: relative;
+}
+#home-header form .form-group .icon-search {
+  position: absolute;
+  top: 12px;
+  right: 20px;
+  font-size: 22px;
+  color: #6d6d6d;
+}
+#home-header form .form-group button {
+  position: absolute;
+  left: 5px;
+  top: 5px;
+  width: 100px;
+  height: 45px;
+  background-color: var(--brand-color);
+  color: var(--color-on-brand-main-color);
+  outline: none;
+  border: none;
+  border-radius: 100px 0px 0px 100px;
+  font-weight: 600;
+}
+
+#services {
+  padding: 80px 0px;
+}
+#services h2 {
+  font-size: 30px;
+}
+#services .card .post-card {
+  padding: 25px;
+  margin-bottom: 15px;
+  min-height: 255px;
+}
+#services .card .post-card h5 {
+  font-size: 18px;
+}
+#services .card .post-card .post-card-image {
+  box-shadow: none !important;
+  margin-top: 0px;
+  border-radius: 0px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+#services .card .post-card .post-card-image img {
+  width: 64px;
+  height: 64px;
+  -o-object-fit: contain;
+     object-fit: contain;
+  border-radius: 0px;
+  transform: scale(1) !important;
+}
+
+#experiences {
+  padding: 80px 0px;
+}
+#experiences .bg-theme {
+  width: 100%;
+  background-image: url(../../../images/experiences/elaosboa52048.jpg);
+  background-size: cover;
+  background-position: center center;
+  position: relative;
+}
+#experiences .bg-theme, #experiences .bg-theme::after,
+#experiences .bg-theme img {
+  border-radius: 25px;
+}
+#experiences .bg-theme::after {
+  content: "";
+  background-color: rgba(0, 0, 0, 0.5);
+  inset: 0px;
+  position: absolute;
+  z-index: 1;
+}
+#experiences .bg-theme img {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-height: 400px;
+  -o-object-fit: fill;
+     object-fit: fill;
+}
+#experiences .section-title {
+  font-size: 22px;
+  color: var(--brand-color);
+  margin-bottom: 10px;
+}
+#experiences li {
+  position: relative;
+  padding-right: 15px;
+  margin-bottom: 8px;
+}
+#experiences li::after {
+  content: "";
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: transparent;
+  border: 1px solid gray;
+  right: 0px;
+  top: 8px;
+}
+
+#articles {
+  padding: 80px 0px;
+}
+#articles .card .post-card {
+  padding: 20px;
+  margin-bottom: 30px;
+  min-height: 255px;
+}
+#articles .card .post-card h5 {
+  font-size: 18px;
+  margin-top: 20px;
+}
+#articles .card .post-card .post-card-image {
+  box-shadow: none !important;
+  margin-top: 0px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+#books {
+  padding: 60px 0px;
+}
+#books img {
+  border-radius: 15px;
+}
+#books .item a {
+  position: relative;
+  overflow: hidden;
+}
+#books .item a .notfound-badge {
+  position: absolute;
+  top: 15px;
+  background-color: rgb(238, 0, 0);
+  color: #fff;
+  padding: 3px 0px;
+  width: 200px;
+  text-align: center;
+  transform: rotate(-30deg);
+  left: -50px;
+  font-size: 14px;
+  z-index: 1;
+}
+
+.newslettre {
+  background-color: #f9f9ff;
+}
+
+.footer .copyright {
+  border-top: none !important;
+}
+
+.dark .newslettre {
+  background-color: #1d1d1d;
+}
+
+#thanks-keyword h2 {
+  position: relative;
+}
+#thanks-keyword h2::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0px;
+}
+
+@media (max-width: 500px) {
+  #home-header .header-content .content .title {
+    font-size: 28px !important;
+    font-weight: bold;
+  }
+  #home-header .header-content .content p {
+    font-size: 18px;
+  }
+  #home-header form input {
+    font-size: 16px;
+  }
+  #home-header form .form-group {
+    position: relative;
+  }
+  #home-header form .form-group .icon-search {
+    top: 15px;
+  }
+  #home-header form .form-group button {
+    width: 75px;
+  }
+}/*# sourceMappingURL=index.css.map */

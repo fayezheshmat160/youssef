@@ -1,0 +1,32 @@
+body {
+  padding-top: 20px;
+}
+
+header {
+  height: 60vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  position: relative;
+}
+header::before {
+  content: "";
+  position: absolute;
+  background: linear-gradient(180deg, rgba(34, 34, 34, 0) 0%, #222222 100%);
+  top: 0px;
+  bottom: 0px;
+  right: 0px;
+  left: 0px;
+  transition: all 0.3s ease;
+}
+
+#post {
+  margin-top: -100px;
+}
+
+.post-single {
+  margin-top: 0px;
+}
+.post-single .post-single-image {
+  margin-top: 0px;
+}/*# sourceMappingURL=show.css.map */

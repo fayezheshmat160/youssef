@@ -1,0 +1,21 @@
+#category {
+    .category-name {
+        font-size: 20px;
+    }
+
+    #relatedCategories {
+        a {
+            background-color: var(--second-bg);
+            color: var(--color);
+            display: inline-block;
+            border-radius: var(--border-radius);
+            transition: background-color 0.2s linear;
+            padding: 8px 12px !important;
+            margin-bottom: 5px;
+            &:hover {
+                color: #fff;
+                background-color: var(--main-color);
+            }
+        }
+    }
+}

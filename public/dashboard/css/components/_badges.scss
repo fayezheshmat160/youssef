@@ -1,0 +1,39 @@
+/*
+|
+| Soft Badge
+|
+*/
+$badge-color-list: (
+    "badge-soft-success" $success $soft-success,
+    "badge-soft-info" $info $soft-info,
+    "badge-soft-primary" $primary $soft-primary,
+    "badge-soft-warning" $warning $soft-warning,
+    "badge-soft-danger" $danger $soft-danger,
+    "badge-soft-light" $light $soft-light,
+    "badge-soft-main" var(--main-color) var(--soft-main-color)
+);
+
+@each $class-name, $color, $bg in $badge-color-list {
+    .#{$class-name} {
+        background-color: $bg;
+        color: $color;
+    }
+}
+
+.badge-main {
+    background-color: var(--background);
+}
+
+.dash-badge {
+    font-size: 0.6906rem;
+    padding: 3px 5px;
+    border-radius: var(--border-radius);
+    font-weight: 700;
+}
+.badge-success {
+    background-color: $success !important;
+}
+
+.badge-danger{
+    background-color: #f96766 !important;
+}

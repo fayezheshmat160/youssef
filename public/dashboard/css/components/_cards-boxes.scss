@@ -1,0 +1,18 @@
+/* Box Style */
+.box {
+    padding: 2rem;
+    background-color: var(--card-background);
+    border: var(--card-border);
+    border-radius: var(--border-radius);
+    word-wrap: break-word;
+    box-shadow: var(--card-shadow);
+    margin-bottom: 20px;
+    .box-title {
+        padding: 0px 1rem;
+        font-size: 16px;
+        font-weight: 600;
+    }
+    .box-body {
+        padding: 0px 1rem;
+    }
+}

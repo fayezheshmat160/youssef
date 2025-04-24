@@ -1,0 +1,42 @@
+@import "../../helpers/colors";
+/* analytics-brief */
+#analytics-brief {
+    .box {
+        position: relative;
+        transition: transform 0.1s linear;
+        &:hover {
+            transform: translateY(-3px);
+        }
+        .icon {
+            position: absolute;
+            right: 15px; /* Replace */
+            bottom: 15px;
+            padding: 8px;
+            border-radius: var(--border-radius);
+            svg {
+                width: 35px;
+                height: 35px;
+            }
+        }
+        .bg-soft-success {
+            svg {
+                fill: $success !important;
+            }
+        }
+        .bg-soft-info {
+            svg {
+                fill: $info !important;
+            }
+        }
+        .bg-soft-warning {
+            svg {
+                fill: $warning !important;
+            }
+        }
+        .bg-soft-primary {
+            svg {
+                fill: $primary !important;
+            }
+        }
+    }
+}

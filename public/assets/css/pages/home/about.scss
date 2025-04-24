@@ -1,0 +1,106 @@
+.radius{
+    border-radius: 20px;
+}
+
+
+.dr-image-sticky{
+    position: sticky;
+    top: calc(var(--navbar-height) + 15px);
+
+
+}
+
+#experiences {
+    padding: 80px 0px;
+    padding-bottom: 50px;
+
+    // img{
+    //     min-height: 300px;
+    //     object-fit: cover;
+    // }
+    .bg-theme {
+        width: 100%;
+        background-image: url(../../../images/experiences/elaosboa52048.jpg);
+        background-size: cover;
+        background-position: center center;
+        position: relative;
+
+        &,
+        &::after,
+        img {
+            border-radius: 25px;
+        }
+
+        &::after {
+            content: "";
+            background-color: rgba(0, 0, 0, 0.5);
+            inset: 0px;
+            position: absolute;
+            z-index: 1;
+        }
+        img {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            max-height: 400px;
+            object-fit: fill;
+        }
+    }
+
+    .section-title {
+        font-size: 22px;
+        color: var(--brand-color);
+        margin-bottom: 10px;
+    }
+
+    li {
+        position: relative;
+        padding-right: 15px;
+        margin-bottom: 8px;
+        &::after {
+            content: "";
+            position: absolute;
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: transparent;
+            border: 1px solid gray;
+            right: 0px;
+            top: 8px;
+        }
+    }
+}
+
+
+#services {
+    padding-bottom: 80px;
+    h2 {
+        font-size: 30px;
+    }
+
+    .card {
+        .post-card {
+            padding: 25px;
+            margin-bottom: 15px;
+            min-height: 255px;
+            h5 {
+                font-size: 18px;
+            }
+
+            .post-card-image {
+                box-shadow: none !important;
+                margin-top: 0px;
+                border-radius: 0px;
+                text-align: center;
+                margin-bottom: 10px;
+                img {
+                    width: 64px;
+                    height: 64px;
+                    object-fit: contain;
+                    border-radius: 0px;
+                    transform: scale(1) !important;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,28 @@
+.nav-pills {
+    // Tabs Links
+    .nav-link {
+        background-color: var(--btn-secondary-background) !important;
+        color: var(--btn-secondary-color) !important;
+        border-radius: var(--border-radius);
+        border: solid 1px var(--border-color);
+    }
+    // Active Tag
+    .active {
+        background-color: var(--btn-main-background) !important;
+        color: var(--btn-main-color) !important;
+    }
+}
+
+.input-group {
+    input{
+        width: calc(100% - 45px) !important;
+    }
+    .input-group-prepend {
+        width: 45px;
+        .input-group-text {
+            width: 100%;
+            text-align: center !important;
+            display: block;
+        }
+    }
+}

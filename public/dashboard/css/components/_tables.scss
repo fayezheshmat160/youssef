@@ -1,0 +1,50 @@
+$colorB: #dde1ef;
+.table-modern {
+    th,
+    td {
+        white-space: nowrap;
+    }
+
+    thead th {
+        border-bottom: 1px solid $colorB !important;
+        border-top: none;
+    }
+    tbody {
+        td,
+        th {
+            border-bottom: 1px solid $colorB !important;
+        }
+        tr {
+            &:last-of-type {
+                td {
+                    border-bottom: none !important;
+                }
+            }
+        }
+    }
+}
+.remove-borders {
+    tbody td,
+    th {
+        border: 0px !important;
+    }
+}
+.table-hover {
+    transition: background-color 0.2s linear;
+    &:hover {
+        background-color: var(--background);
+    }
+}
+
+// .table thead th {
+//     border-bottom: 1px solid var(--border-color) !important;
+//     border-top: none;
+// }
+
+// th,
+// td {
+//     white-space: nowrap;
+// }
+// .text-wrap {
+//     white-space: normal !important;
+// }

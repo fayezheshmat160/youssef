@@ -1,0 +1,14 @@
+body {
+  padding-top: var(--navbar-height);
+}
+
+.radius {
+  border-radius: 20px;
+}
+
+img {
+  transition: all 0.2s linear;
+}
+img:hover {
+  transform: scale(1.05);
+}/*# sourceMappingURL=media.css.map */

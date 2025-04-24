@@ -1,0 +1,41 @@
+/*
+|
+| System Color
+|
+*/
+/*
+|
+| Soft Colors
+|
+*/
+/* analytics-brief */
+#analytics-brief .box {
+  position: relative;
+  transition: transform 0.1s linear;
+}
+#analytics-brief .box:hover {
+  transform: translateY(-3px);
+}
+#analytics-brief .box .icon {
+  position: absolute;
+  right: 15px; /* Replace */
+  bottom: 15px;
+  padding: 8px;
+  border-radius: var(--border-radius);
+}
+#analytics-brief .box .icon svg {
+  width: 35px;
+  height: 35px;
+}
+#analytics-brief .box .bg-soft-success svg {
+  fill: #24cd91 !important;
+}
+#analytics-brief .box .bg-soft-info svg {
+  fill: var(--info) !important;
+}
+#analytics-brief .box .bg-soft-warning svg {
+  fill: var(--warning) !important;
+}
+#analytics-brief .box .bg-soft-primary svg {
+  fill: var(--primary) !important;
+}/*# sourceMappingURL=home.css.map */

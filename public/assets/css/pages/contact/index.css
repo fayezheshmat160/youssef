@@ -1,0 +1,18 @@
+body {
+  padding-top: 20px;
+}
+
+.widget .content {
+  background-color: #f9f9ff;
+  width: 100%;
+  display: block;
+  direction: ltr !important;
+  text-align: left;
+  padding: 15px 20px;
+  border-radius: 20px;
+  font-size: 18px;
+}
+
+.dark .content {
+  background-color: #1d1d1d;
+}/*# sourceMappingURL=index.css.map */

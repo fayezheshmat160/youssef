@@ -1,0 +1,254 @@
+/*
+|
+| Left To Right Files
+| Import All File From "ltr" Directions Only
+|
+*/
+/* Global */
+@import url("https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap");
+body {
+  direction: rtl !important;
+  padding-right: var(--aside-width);
+  font-family: "Cairo", serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+label,
+div,
+section,
+article,
+b,
+strong,
+ul,
+li,
+a,
+button {
+  text-align: right;
+}
+
+/* Bootstrap */
+.alert-dismissible i,
+.alert-dismissible svg {
+  margin-left: 5px;
+}
+
+#links-bar {
+  float: right;
+}
+
+.btn-add-new {
+  float: left;
+  margin-right: 5px;
+}
+
+.pr-remove {
+  padding-left: 0px !important;
+}
+
+.search-buttons button,
+.search-buttons a {
+  left: 0px;
+  border-radius: var(--border-radius) 0px 0px var(--border-radius);
+}
+
+/* Plugins */
+/*
+|||||||||||||||||||||||||||||||||||||||||||||||||| File Map
+- Bootstrap
+- Data table js
+- Font Aw..
+*/
+/*
+*
+*
+*
+* Bootstrap
+*
+*
+*
+*/
+.alert-dismissible .close {
+  left: -4px !important;
+  text-align: left;
+}
+
+.modal-open {
+  padding-left: 0px !important;
+  overflow: hidden;
+}
+
+.dropdown-menu {
+  text-align: right;
+}
+
+/*
+*
+*
+*
+* Font Aw..
+*
+*
+*
+*/
+.alert .svg-inline--fa {
+  margin-left: 5px;
+}
+
+/*
+*
+*
+*
+* Data table js
+*
+*
+*
+*/
+table.dataTable thead th,
+table.dataTable thead td,
+table.dataTable tfoot th,
+table.dataTable tfoot td {
+  text-align: right !important;
+}
+
+div.dataTables_wrapper div.dataTables_filter {
+  text-align: left !important;
+}
+
+#myTable_wrapper .col-md-6 {
+  padding: 0px !important;
+}
+
+#myTable_filter input {
+  width: 240px;
+  height: 40px;
+  padding: 0.5rem 0.5rem;
+  margin-left: 0px;
+}
+
+/*
+| Layouts ( Aside , Navbar )
+*/
+#aside {
+  transition: right 0.3s linear;
+  right: 0px;
+}
+#aside .side-menu .side-item a .side-name-lable {
+  margin-right: 10px;
+}
+#aside .side-menu .side-item a .arrow-icon {
+  float: left;
+  transform: rotate(90deg);
+}
+#aside .side-menu .side-item .sub-menu .sub-item .side-icon::before {
+  right: 6px;
+  transform: rotate(-40deg) !important;
+  right: 7px;
+}
+#aside .side-menu .side-item .sub-menu .sub-item .side-icon::after {
+  right: 6px;
+  transform: rotate(40deg) !important;
+  right: 7px;
+}
+
+.toggle {
+  right: var(--aside-minus-width) !important;
+}
+
+#navbar {
+  direction: rtl !important;
+  border-right: solid 1px var(--border-color);
+  /* IF Clicked Button #btn-sidebar-toggle Start This Action*/
+}
+#navbar #btn-aside-toggle {
+  float: right;
+}
+#navbar .toggle {
+  right: var(--aside-minus-width) !important;
+}
+
+#start-of-navbar {
+  float: right !important;
+}
+
+#end-of-navbar {
+  float: left !important;
+}
+
+@media (max-width: 1024px) {
+  body {
+    padding-right: 0px !important;
+  }
+  #aside {
+    right: var(--aside-minus-width);
+  }
+  #aside .aside-overlay {
+    left: 0px;
+  }
+  .toggle {
+    right: 0px !important;
+  }
+  #navbar {
+    width: 100% !important;
+  }
+}
+/*
+| App Pages Style
+*/
+#mailbox .folders .nav i {
+  margin-left: 5px;
+}
+#mailbox .folders .nav svg {
+  margin-left: 5px;
+}
+#mailbox #Inbox .mail .send-at {
+  text-align: left;
+}
+#mailbox #Inbox .mail .send-by {
+  margin-right: 5px;
+}
+
+#read-mail .box-head .name {
+  float: right;
+}
+#read-mail .box-head .actions {
+  float: left;
+}
+
+/*
+*
+* Admin Pages
+*
+*/
+header #btn-choose-cover {
+  left: 15px;
+}
+header #form-change-cover button {
+  left: 180px;
+}
+
+#edit #portfolio #btn-portfolio-open-model {
+  left: 0px;
+}
+#edit #portfolio .btn-update-port {
+  float: left;
+}
+#edit #profile-details .buttons-update {
+  text-align: left;
+}
+#edit #profile-details #experience #form-inputs .row .btn-delete-job {
+  left: 0px;
+}
+#edit #profile-details #account #security .info {
+  float: right;
+}
+#edit #profile-details #account #security form {
+  float: left;
+}
+#edit #profile-details .owner-update-password button {
+  left: 0px;
+}/*# sourceMappingURL=rtl.css.map */

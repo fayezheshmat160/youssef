@@ -1,0 +1,89 @@
+// Button Action Effects
+.btn {
+    //padding: 0.5rem 0.85rem;
+    padding: calc(.5rem + 1px) calc(1rem + 1px);
+
+    border-radius: var(--border-radius) !important;
+    transition: all 0.1s linear;
+    &:disabled {
+        cursor: not-allowed;
+        opacity: 0.6;
+    }
+    &:hover {
+        opacity: 0.9;
+    }
+    &:active {
+        opacity: 0.9;
+        transform: scale(0.94);
+    }
+    &:focus {
+        box-shadow: none !important;
+    }
+}
+.btn-sm {
+    padding: 0.25rem 0.5rem !important;
+    font-size: 0.875rem !important;
+    line-height: 1.5 !important;
+    border-radius: var(--border-radius) !important;
+}
+
+/*
+|
+| Soft Buttons
+|
+*/
+
+$buttons-soft: (
+    "btn-soft-success" $success $soft-success,
+    "btn-soft-info" $info $soft-info,
+    "btn-soft-primary" $primary $soft-primary,
+    "btn-soft-warning" $warning $soft-warning,
+    "btn-soft-danger" $danger $soft-danger,
+    "btn-soft-light" $light $soft-light,
+    "btn-soft-main" var(--main-color) var(--soft-main-color)
+);
+@each $class-name, $color, $bg in $buttons-soft {
+    .#{$class-name} {
+        background-color: $bg;
+        color: $color !important;
+        border-radius: var(--border-radius);
+    }
+}
+
+.btn-main {
+    background-color: var(--btn-main-background);
+    color: var(--btn-main-color) !important;
+    font-weight: 500 !important;
+}
+.btn-second {
+    background-color: var(--btn-second-background);
+    color: var(--btn-second-color) !important;
+
+}
+
+.table-btn-edit,
+.table-btn-delete,
+.table-btn-show {
+    border-radius: var(--border-radius);
+    display: inline-block;
+    text-align: center;
+    font-size: 19px;
+    //padding: 3.5px 10px;
+    width: 32px;
+    height: 30px;
+    line-height: 35px !important;
+}
+
+.table-btn-show {
+    background-color: var(--soft-main-color);
+    color: var(--main-color);
+}
+
+.table-btn-edit {
+    background-color: $soft-primary ;
+    color: $primary;
+}
+.table-btn-delete {
+    background-color: $soft-danger;
+    color: $danger;
+}

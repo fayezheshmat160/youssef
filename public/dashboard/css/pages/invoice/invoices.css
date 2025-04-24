@@ -1,0 +1,68 @@
+/*
+|
+| System Color
+|
+*/
+/*
+|
+| Soft Colors
+|
+*/
+#invoices .box .table tbody td,
+#invoices .box .table tbody th {
+  border-bottom: 1px solid #f5f6fa !important;
+}
+#invoices .box .table tbody tr {
+  transition: background-color 0.2s linear;
+}
+#invoices .box .table tbody tr:hover {
+  background-color: var(--background);
+}
+#invoices .box .table .border-b:last-of-type {
+  border-bottom: none !important;
+}
+
+#show-invoice {
+  display: none;
+}
+#show-invoice .details-box {
+  display: none;
+  transition: height 1s linear;
+}
+#show-invoice .details-box .invoice-total {
+  padding: 5px 20px !important;
+}
+#show-invoice .details-box table tbody td {
+  padding: 5px 20px !important;
+}
+
+.spinner {
+  margin: 100px auto;
+  width: 70px;
+  text-align: center;
+}
+
+.spinner > div {
+  width: 18px;
+  height: 18px;
+  background-color: var(--main-color);
+  border-radius: 100%;
+  display: inline-block;
+  animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+}
+
+.spinner .bounce1 {
+  animation-delay: -0.32s;
+}
+
+.spinner .bounce2 {
+  animation-delay: -0.16s;
+}
+@keyframes sk-bouncedelay {
+  0%, 80%, 100% {
+    transform: scale(0);
+  }
+  40% {
+    transform: scale(1);
+  }
+}/*# sourceMappingURL=invoices.css.map */
