@@ -24,6 +24,7 @@ class QuestionsController extends Controller
     }
     public function store(Request $request)
     {
+        
         $data = $request->validate([
             'subject_id' => 'required|exists:subjects,id',
             'question' => 'required|string',
@@ -36,6 +37,7 @@ class QuestionsController extends Controller
             'option_c' => 'required|string',
             'option_d' => 'required|string',
         ]);
+   
     
         $data['options'] = json_encode([
             'a' => $request->option_a,

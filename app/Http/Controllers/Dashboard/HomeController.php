@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Dashboard\Emails;
 use App\Models\Question;
 use App\Models\Subject;
+use App\Models\Dashboard\admin\Admin;
 
 
 class HomeController extends Controller
@@ -16,8 +17,11 @@ class HomeController extends Controller
     {
         $questionsCount = Question::count();
         $subjectsCount = Subject::count();
+        $admin = auth('admin')->user();
+
+      
         // return redirect(adminUrl('books'));
-        return view(pathPrefix() . 'home',compact('questionsCount', 'subjectsCount'));
+        return view(pathPrefix() . 'home',compact('questionsCount', 'subjectsCount','admin'));
     }
 
     public function getAllStudent(){

@@ -3,12 +3,28 @@
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\PlanController;
 
 
 
-//Route::get('/hellobakr', function () {
-//    return 'Hello  ya bakr  ';
-//});
+Route::get('/test', function () {
+   return view("test");
+});
+Route::get('/dash', [App\Http\Controllers\PlanController::class, 'showForUsers'])->name('home');
+
+Route::get('/contact', [ContactController::class, 'showForm'])->name('contact');
+
+// إرسال البيانات بعد تعبئة الفورم
+Route::post('/store', [ContactController::class, 'store'])->name('store');
+
+
+Route::post('/admin/notifications/mark-as-read', function () {
+    auth('admin')->user()->unreadNotifications->markAsRead();
+    return response()->json(['status' => 'success']);
+})->name('admin.notifications.read');
+
+
 
 Route::get('/register', [UserController::class, 'showRegister'])->name('showRegister');
 Route::post('/register', [UserController::class, 'register'])->name('register');

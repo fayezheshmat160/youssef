@@ -10,8 +10,36 @@
     $messagesUnRead = DB::table('mailbox')->where('read', '0')->count('id');
 
 @endphp
-<nav id="navbar" class="navbar-fixed navbar-main-width">
 
+<nav id="navbar" class="navbar-fixed navbar-main-width">
+    <section id='notfication ms-auto'>
+        @php
+    $notifications = auth('admin')->user()->unreadNotifications;
+@endphp
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+document.getElementById('notificationToggle').addEventListener('click', function () {
+    const badge = document.getElementById('notificationBadge');
+    if (badge) {
+        badge.style.display = 'none';
+    }
+
+    // Mark notifications as read via AJAX
+    fetch("{{ route('admin.notifications.read') }}", {
+        method: "POST",
+        headers: {
+            'X-CSRF-TOKEN': '{{ csrf_token() }}',
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        }
+    });
+});
+</script>
+    <section>
     <section id="start-of-navbar" class=" d-inline-block">
         <div id="btn-aside-toggle"><i class="fas fa-bars"></i></div>
     </section><!-- start of navbar -->
@@ -60,7 +88,7 @@
                         @endforeach
 
                     </ul>
-                    <a class="read-more text-center d-block" href="">عرض المزيد</a>
+                    <a class="read-more text-center d-block" href="mail">عرض المزيد</a>
 
                 </div><!-- data -->
 

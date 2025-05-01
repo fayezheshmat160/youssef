@@ -69,6 +69,14 @@
         ]" /><!-- End Questions -->
 
 
+<x-dashboard.aside :details="[
+            'name' => ' الباقات',
+            'icon' => '<i class=\'fas fa-user-graduate\'></i>',
+            'link' => 'plans/index',
+        ]" /><!-- End mailbox -->
+
+
+
 
 
 

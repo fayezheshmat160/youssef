@@ -13,6 +13,10 @@ use App\Http\Controllers\Dashboard\MailBox\MailboxController;
 use App\Http\Controllers\Dashboard\MailBox\MailReplyController;
 use App\Http\Controllers\Dashboard\Settings\SettingsController;
 use App\Http\Controllers\DashboardAdminController;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\PlanController;
+
+
 
 
 Route::prefix(adminPrefix())->group(function () {
@@ -30,6 +34,29 @@ Route::prefix(adminPrefix())->group(function () {
      */
     Route::middleware(['AdminAuth'])->group(function () {
         Route::get('getAllStudent', [HomeController::class, 'getAllStudent'])->name('students.getAllQuestions');
+
+        /****************************************************** plans*/
+
+          // عرض كل الباقات
+    Route::get('/plans/index', [PlanController::class, 'index'])->name('dashboard.plans.index');
+
+    // عرض فورم إنشاء باقة
+    Route::get('/plans/create', [PlanController::class, 'create'])->name('dashboard.plans.create');
+
+    // حفظ باقة جديدة
+    Route::post('/plans', [PlanController::class, 'store'])->name('dashboard.plans.store');
+
+    // عرض فورم تعديل باقة
+    Route::get('/plans/{plan}/edit', [PlanController::class, 'edit'])->name('dashboard.plans.edit');
+
+    // تحديث بيانات الباقة
+    Route::put('/plans/{plan}', [PlanController::class, 'update'])->name('dashboard.plans.update');
+
+    // حذف باقة
+    Route::delete('/plans/{plan}', [PlanController::class, 'destroy'])->name('dashboard.plans.destroy');
+
+
+    /***********************plans end */
 
         /*
         | Questions

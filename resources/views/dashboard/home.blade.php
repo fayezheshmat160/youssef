@@ -5,10 +5,20 @@
 @endsection
 @section('content')
 
+
+
+
+
+{{-- @foreach ($admins as $admin)
+{{$admin->f_name}}
+@endforeach --}}
+
     <section id="welcome" class="my-3">
-        <h6 class="mb-0">Welcome, Saleh!</h6>
+        
+        <h6 class="mb-0">Welcome, {{ $admin->f_name }}!</h6>
         <span class="font-14">Here's what's happening on your site today.</span>
     </section><!-- Welcome Message -->
+
 
 
     <section id="analytics-brief" class="">
