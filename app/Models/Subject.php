@@ -8,6 +8,11 @@ class Subject extends Model
 {
     protected $fillable = ['name'];
 
+    public function passages()
+    {
+        return $this->hasMany(Passage::class);
+    }
+
     public function questions()
     {
         return $this->hasMany(Question::class);

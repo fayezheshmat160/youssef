@@ -24,6 +24,7 @@ class DatabaseSeeder extends Seeder
             MailsSeeder::class,
             SubjectSeeder::class,
             QustionSeeder::class,
+            PassageSeeder::class,
 
 
         ]);

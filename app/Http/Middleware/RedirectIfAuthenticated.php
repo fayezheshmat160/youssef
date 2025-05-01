@@ -17,13 +17,27 @@ class RedirectIfAuthenticated
      * @param  string|null  ...$guards
      * @return \Illuminate\Http\Response|\Illuminate\Http\RedirectResponse
      */
-    public function handle(Request $request, Closure $next, ...$guards)
-    {
-        if (Auth::guard('admin')->check()) { // IF User Login Successfully Redirect To Login Page
-            return redirect(adminPrefix() . '/home');
+//    public function handle(Request $request, Closure $next, ...$guards)
+//    {
+//        if (Auth::guard('admin')->check()) { // IF User Login Successfully Redirect To Login Page
+//            return redirect(adminPrefix() . '/home');
+//
+//           echo "Name Is :" . getAuth('admin','name');
+//        }
+//
+//        return $next($request);
+//    }
 
-           echo "Name Is :" . getAuth('admin','name');
+    public function handle($request, Closure $next)
+    {
+        if (auth('admin')->check()) {
+            return redirect(RouteServiceProvider::HOME);
         }
+
+        if (auth('web')->check()) {
+            return redirect(RouteServiceProvider::STUDENT);
+        }
+
 
         return $next($request);
     }

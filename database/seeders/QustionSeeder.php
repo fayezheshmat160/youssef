@@ -17,10 +17,10 @@ class QustionSeeder extends Seeder
     {
         $faker = Faker::create();
 
-        for ($i = 0; $i < 100; $i++) {
+        for ($i = 0; $i < 1000; $i++) {
             Question::create([
-                'subject_id' => rand(1, 5), // غيّر الـ IDs حسب الموجود فعليًا
-               // 'type' => $faker->randomElement(['لفظئ', 'كمي']),
+                'subject_id' => rand(1, 6), // غيّر الـ IDs حسب الموجود فعليًا
+                'type' => $faker->randomElement(['لفظي', 'كمي']),
                 'question' => $faker->sentence(10),
                 'photo' => null, // أو استخدم صورة وهمية لو عايز
                 'options' => json_encode([
@@ -32,6 +32,7 @@ class QustionSeeder extends Seeder
                 'correct_answer' => $faker->randomElement(['أ', 'ب', 'ج', 'د']),
                 'explane_answer' => $faker->sentence(15),
                 'notes' => $faker->optional()->sentence(8),
+                'passage_id' => null,
             ]);
         }
 

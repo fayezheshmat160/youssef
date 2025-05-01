@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\StudentController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ContactController;
@@ -26,18 +27,25 @@ Route::post('/admin/notifications/mark-as-read', function () {
 
 
 
-Route::get('/register', [UserController::class, 'showRegister'])->name('showRegister');
+Route::get('/showRegister', [UserController::class, 'showRegister'])->name('showRegister');
 Route::post('/register', [UserController::class, 'register'])->name('register');
 
 Route::get('/showLogin', [UserController::class, 'showLogin'])->name('login.form');
-Route::post('/userLogin', [UserController::class, 'login'])->name('userLogin');
+Route::post('/userLogin', [UserController::class, 'userLogin'])->name('userLogin');
 
-Route::get('/userLogout', [UserController::class, 'logout'])->name('userLogout');
-Route::get('', [HomeController::class, 'index']);
+Route::middleware('auth:web')->group(function () {
+    Route::get('/userLogout', [UserController::class, 'logout'])->name('userLogout');
+    Route::get('', [HomeController::class, 'index']);
 
 
-Route::prefix('student')->group(function () {
-    Route::get("index", [\App\Http\Controllers\StudentController::class, 'index'])->name('student.index');
-    Route::get("toExam", [\App\Http\Controllers\StudentController::class, 'toExam'])->name("toExam");
-    Route::get("settings", [\App\Http\Controllers\StudentController::class, 'toSettings'])->name("settings");
+    Route::prefix('student')->group(function () {
+
+        Route::post('updateProfile', [StudentController::class, 'updateProfile'])->name('student.updateProfile');
+        Route::post('changePassword', [StudentController::class, 'changePassword'])->name('student.changePassword');
+        Route::get("index", [StudentController::class, 'index'])->name('student.index');
+        Route::get("toExam", [StudentController::class, 'toExam'])->name("toExam");
+        Route::get("settings", [StudentController::class, 'toSettings'])->name("settings");
+        Route::post('submitExam', [StudentController::class, 'submitExam'])->name('exam.submit');
+        Route::get('showResult', [StudentController::class, 'showResult'])->name('exam.result');
+    });
 });

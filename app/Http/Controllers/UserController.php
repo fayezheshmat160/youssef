@@ -4,59 +4,80 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Session;
-
 
 class UserController extends Controller
 {
-    public function showRegister() {
-        return view('auth.register');
+    // Show the register form
+    public function showRegister()
+    {
+        return view('student.auth.register');
     }
 
-    public function register(Request $request) {
+    // Handle user registration
+    public function register(Request $request)
+    {
         $request->validate([
             'name' => 'required',
             'email' => 'required|email|unique:users',
-            'password' => 'required|min:6|confirmed'
+            'password' => 'required|min:6|confirmed',
         ]);
 
         $user = User::create([
-            'name' => $request->name,
-            'email' => $request->email,
+            'name'     => $request->name,
+            'email'    => $request->email,
             'password' => Hash::make($request->password),
         ]);
 
-        Session::put('user_id', $user->id);
+        Auth::login($user); // Automatically log in the user
 
-        return redirect()->route('login.form'); // or wherever
+        return redirect()->route('student.index'); // Redirect to dashboard
     }
 
-    public function showLogin() {
-        return view('auth.login');
+    // Show the login form
+    public function showLogin()
+    {
+        return view('student.auth.login');
     }
 
-    public function login(Request $request) {
-        $request->validate([
+    // Handle login
+    public function userLogin(Request $request)
+    {
+        $credentials = $request->validate([
             'email' => 'required|email',
-            'password' => 'required'
+            'password' => 'required',
         ]);
 
-        $user = User::where('email', $request->email)->first();
+        $user = User::where('email', $credentials['email'])->first();
 
+        if ($user && Hash::check($credentials['password'], $user->password)) {
+            // Explicitly log the user in using 'web' guard
+            Auth::guard('web')->login($user);
 
-        if ($user && Hash::check($request->password, $user->password)) {
+            // Regenerate session to prevent session fixation
+            $request->session()->regenerate();
 
-          //  Session::put('user_id', $user->id);
+            \Log::info('Login success for user: ' . $request->email);
+
             return redirect()->route('student.index');
-            //return view("student.student");
         }
 
-        return back()->withErrors(['email' => 'Invalid credentials']);
+        \Log::warning('Login failed for email: ' . $request->email);
+
+        return back()->withErrors([
+            'email' => 'Invalid credentials',
+        ]);
     }
 
-    public function logout() {
-        //Session::forget('user_id');
+    // Handle logout
+    public function logout(Request $request)
+    {
+        Auth::logout();
+
+        $request->session()->invalidate();        // Invalidate the session
+        $request->session()->regenerateToken();   // Regenerate CSRF token
+
         return redirect()->route('login.form');
     }
 }

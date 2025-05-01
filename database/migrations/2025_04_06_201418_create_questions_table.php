@@ -14,13 +14,15 @@ return new class extends Migration
         Schema::create('questions', function (Blueprint $table) {
             $table->id();
             $table->foreignId('subject_id')->constrained()->onDelete('cascade');
-            //$table->enum('type', ['لفظئ', 'كمي']);
+            $table->enum('type', ['لفظي', 'كمي']);
             $table->text('question');
             $table->string('photo')->nullable();
             $table->json('options')->nullable(); // For multiple choice
             $table->string('correct_answer');
             $table->string('explane_answer');
             $table->text('notes')->nullable();
+            $table->unsignedBigInteger('passage_id')->nullable();
+            $table->foreign('passage_id')->references('id')->on('passages')->onDelete('cascade');
             $table->timestamps();
         });
     }

@@ -16,11 +16,12 @@ class SubjectSeeder extends Seeder
     public function run()
     {
         Subject::insert([
-            ['name' => 'رياضيات'],
-            ['name' => 'لغة عربية'],
-            ['name' => 'فيزياء'],
-            ['name' => 'كيمياء'],
-            ['name' => 'أحياء'],
+            ['name' => 'رياضيات', 'type'=>'كمي'],
+            ['name' => 'لغة عربية' , 'type'=>'لفظي'],
+            ['name' => 'فيزياء' , 'type'=>'كمي'],
+            ['name' => 'كيمياء' , 'type'=>'كمي'],
+            ['name' => 'أحياء' , 'type'=>'لفظي'],
+            ['name' => 'انجليزي' , 'type'=>'لفظي'],
         ]);
     }
 }

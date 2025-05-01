@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Question extends Model
 {
-    protected $fillable = ['subject_id', 'type', 'question','photo', 'options', 'correct_answer','explane_answer','notes'];
+    protected $fillable = ['subject_id', 'type', 'question','photo', 'options', 'correct_answer','explane_answer'];
 
     protected $casts = [
         'options' => 'array',
@@ -15,5 +15,10 @@ class Question extends Model
     public function subject()
     {
         return $this->belongsTo(Subject::class);
+    }
+
+    public function passage()
+    {
+        return $this->belongsTo(Passage::class);
     }
 }

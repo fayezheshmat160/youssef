@@ -20,6 +20,7 @@
     @include('dashboard.layouts.scripts.blank-script')
 
     @yield('js')
+    @yield('scripts')
 
 </body>
 
