@@ -17,7 +17,7 @@
 
         <div class="mb-3">
             <label>سعر الباقة</label>
-            <input type="number" step="0.01" name="price" class="form-control" required>
+            <input type="number"  name="price" class="form-control" required>
         </div>
 
         <div class="mb-3">

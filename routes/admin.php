@@ -15,6 +15,7 @@ use App\Http\Controllers\Dashboard\Settings\SettingsController;
 use App\Http\Controllers\DashboardAdminController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\PlanController;
+use App\Http\Controllers\AdminPassageController;
 
 
 
@@ -33,6 +34,27 @@ Route::prefix(adminPrefix())->group(function () {
      * Admin Middleware
      */
     Route::middleware(['AdminAuth'])->group(function () {
+
+        Route::get('/passages/index', [AdminPassageController::class, 'index'])->name('passages.index');
+        Route::get('/passages/create', [AdminPassageController::class, 'create'])->name('passages.create');
+        Route::post('/passages/store', [AdminPassageController::class, 'store'])->name("passages.store");
+
+
+          // تعديل القطعة
+    Route::get('/passages/{id}/edit', [AdminPassageController::class, 'edit'])->name('passages.edit');
+
+    // تحديث القطعة
+    Route::put('/passages/{id}', [AdminPassageController::class, 'update'])->name('passages.update');
+
+    // حذف القطعة
+    Route::delete('/passages/{id}', [AdminPassageController::class, 'destroy'])->name('passages.destroy');
+        // Route::get('/passages/{edit}/edit', [AdminPassageController::class, 'edit'])->name('passages.edit');
+
+        // Route::post('/passages/update', [AdminPassageController::class, 'update'])->name("passages.update");
+        // Route::post('destroy', [AdminPassageController::class, 'destroy'])->name("passages.destroy");
+
+        
+
         Route::get('getAllStudent', [HomeController::class, 'getAllStudent'])->name('students.getAllQuestions');
 
         /****************************************************** plans*/

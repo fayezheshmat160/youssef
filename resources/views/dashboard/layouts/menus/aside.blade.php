@@ -45,10 +45,12 @@
                     'name' => 'جميع الأسئلة',
                     'link' => 'questions/getAllQuestions',
                 ],
+               
                 [
-                    'name' => 'اضافة سؤال جديد',
-                    'link' => 'questions/create',
+                    'name' => 'قائمه القطع ',
+                    'link' => 'passages/index',
                 ],
+               
             ],
         ]" /><!-- End Questions -->
 

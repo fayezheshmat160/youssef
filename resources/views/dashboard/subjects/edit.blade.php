@@ -1,54 +1,38 @@
 @extends('dashboard.layouts.master')
-@section('title', 'Edit Types')
-@section('css')
-    <style>
-        .row {
-            margin-top: 100px;
-        }
-    </style>
-@endsection
+@section('title', 'تعديل مادة')
 @section('content')
-    <!-- row -->
-    <div class="row mt-10">
-        <div class="col-md-12 mb-30">
-            <div class="card card-statistics h-100">
+<div class="container py-4">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow">
+                <div class="card-header bg-primary text-white">
+                    <h5 class="mb-0">
+                        <i class="fas fa-edit me-2"></i>تعديل مادة
+                    </h5>
+                </div>
                 <div class="card-body">
-
-                    @if (session()->has('error'))
-                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                            <strong>{{ session()->get('error') }}</strong>
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
+                    <form action="{{ route('subjects.update', $subject) }}" method="POST">
+                        @csrf
+                        @method('PUT')
+                        <div class="mb-3">
+                            <label for="name" class="form-label">اسم المادة</label>
+                            <input type="text" class="form-control" id="name" name="name" 
+                                   value="{{ $subject->name }}" required>
                         </div>
-                    @endif
-                    <div class="col-xs-12">
-                        <div class="col-md-12">
-                            <br>
-                            <form action="{{ route('subjects.update', ['subject' => $subject->id]) }}" method="POST">
-                                @csrf
-                                @method('PUT')
-
-                                <div class="form-row">
-                                    <div class="col">
-                                        <label for="title">نوع السؤال</label>
-                                        <input type="text" name="name" class="form-control"
-                                            value="{{ old('name', $subject->name) }}">
-                                    </div>
-                                </div>
-                                <br>
-                                <button class="btn btn-primary btn-sm nextBtn btn-lg pull-right" type="submit">تحديث
-                                    البيانات</button>
-                            </form>
+                        <div class="mb-3">
+                            <label class="form-label">النوع</label>
+                            <select class="form-select" name="type" required>
+                                <option value="لفظي" {{ $subject->type == 'لفظي' ? 'selected' : '' }}>لفظي</option>
+                                <option value="كمي" {{ $subject->type == 'كمي' ? 'selected' : '' }}>كمي</option>
+                            </select>
                         </div>
-                    </div>
-
+                        <button type="submit" class="btn btn-success">
+                            <i class="fas fa-save me-1"></i> تحديث
+                        </button>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
-    <!-- row closed -->
-@endsection
-
-@section('js')
+</div>
 @endsection

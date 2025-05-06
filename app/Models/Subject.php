@@ -6,7 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Subject extends Model
 {
-    protected $fillable = ['name'];
+    protected $fillable = ['name','type'];
+
+    protected $casts = [
+        'type' => 'string'
+    ];
 
     public function passages()
     {

@@ -19,7 +19,7 @@ return new class extends Migration
             $table->longText('content');
             $table->enum('type', ['لفظي', 'كمي']);
             $table->unsignedBigInteger("subject_id")->nullable();
-            $table->foreign("subject_id")->references("id")->on("subjects");
+            $table->foreign("subject_id")->references("id")->on("subjects")->onDelete('cascade');
             $table->timestamps();
         });
     }

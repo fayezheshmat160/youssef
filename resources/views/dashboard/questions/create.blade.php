@@ -1,137 +1,144 @@
 @extends('dashboard.layouts.master')
-@section('title', 'Create Question')
+@section('title', 'إضافة سؤال جديد')
 @section('css')
+<style>
+    .form-card {
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        padding: 1.5rem;
+    }
+    
+    .option-container {
+        position: relative;
+        margin-bottom: 1.5rem;
+    }
+    
+    .option-label {
+        position: absolute;
+        right: 15px;
+        top: -10px;
+        background-color: var(--primary-color);
+        color: white;
+        padding: 2px 10px;
+        border-radius: 20px;
+        font-size: 12px;
+        font-weight: 600;
+    }
+    
+    .file-upload {
+        border: 1px dashed #e0e0e0;
+        border-radius: 8px;
+        padding: 1rem;
+        text-align: center;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+    
+    .file-upload:hover {
+        border-color: var(--primary-color);
+        background-color: rgba(108, 92, 231, 0.05);
+    }
+    
+    .radio-correct {
+        display: flex;
+        align-items: center;
+        margin-top: 0.5rem;
+    }
+    
+    .radio-correct input {
+        margin-left: 0.5rem;
+    }
+</style>
 @endsection
+
 @section('content')
-    <div class="row">
-        <div class="col-md-12 mb-30">
-            <div class="card card-statistics h-100">
-                <div class="card-body">
+<div class="container py-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h5 class="text-primary mb-0">
+            <i class="fas fa-plus-circle me-2"></i>إضافة سؤال جديد
+        </h5>
+    </div>
 
-                    @if (session()->has('error'))
-                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                            <strong>{{ session()->get('error') }}</strong>
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                    @endif
-                    <div class="col-xs-12">
-                        <div class="col-md-12">
-                            <br>
-                            <form action="{{ route('questions.store') }}" method="post" autocomplete="off"
-                                enctype="multipart/form-data">
-                                @csrf
-                                <div class="form-row">
-                                    <div class="col">
-                                        <label for="title"> السؤال</label>
-                                        <textarea name="question" class="form-control" id="exampleFormControlTextarea1" rows="4"></textarea>
-                                    </div>
-                                </div>
-                                <div class="form-row">
-                                    <div class="form-group">
-                                        <label for="academic_year">صوره للسؤال : <span class="text-danger">*</span></label>
-                                        <input type="file" name="photo" multiple>
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                </div>
-                                <br>
-                                <div class="form-row">
-                                    <div class="col">
-                                        <label for="title">الاختيار الاول</label>
-                                        <textarea name="option_a" class="form-control" id="exampleFormControlTextarea1" rows="4"></textarea>
-                                        <input class=""type="radio" name="correct_answer" value="a" required>
-                                        الاجابه الصحيحه
-                                    </div>
-                                </div>
-                                <br>
-                                <div class="form-row">
-                                    <div class="col">
-                                        <label for="title">الاختيار الثاني</label>
-                                        <textarea name="option_b" class="form-control" id="exampleFormControlTextarea1" rows="4"></textarea>
-                                        <input class=""type="radio" name="correct_answer" value="b"
-                                            required>الاجابه الصحيحه
-                                    </div>
-                                </div>
-                                <br>
-                                <div class="form-row">
-                                    <div class="col">
-                                        <label for="title">الاختيار الثالث</label>
-                                        <textarea name="option_c" class="form-control" id="exampleFormControlTextarea1" rows="4"></textarea>
-                                        <input class=""type="radio" name="correct_answer" value="c"
-                                            required>الاجابه الصحيحه
-                                    </div>
-                                </div>
-                                <br>
-                                <div class="form-row">
-                                    <div class="col">
-                                        <label for="title">الاختيار الرابع</label>
-                                        <textarea name="option_d" class="form-control" id="exampleFormControlTextarea1" rows="4"></textarea>
-                                        <input class=""type="radio" name="correct_answer" value="d"
-                                            required>الاجابه الصحيحه
-                                    </div>
-                                </div>
-                                <br>
-                                <div class="form-row">
-                                    <div class="col">
-                                        <label for="title"> شرح الاجابه</label>
-                                        <textarea name="explane_answer" class="form-control"></textarea>
-                                    </div>
-                                </div>
-                                <br>
-                                <div class="form-row">
-                                    <div class="col">
-                                        <label for="title"> ملاحظات </label>
-                                        <textarea name="notes" class="form-control"></textarea>
-                                    </div>
-                                </div>
-                                <br>
-                                <div class="form-row">
-                                    <div class="col">
-                                        <div class="form-group">
-                                            <label for="Grade_id">اسم الاختبار : <span class="text-danger">*</span></label>
-                                            <select class="custom-select mr-sm-2" name="subject_id">
-                                                <option selected disabled>حدد اسم الاختبار...</option>
-                                                @foreach ($subjects as $subject)
-                                                    <option value="{{ $subject->id }}">{{ $subject->name }}</option>
-                                                @endforeach
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <!-- <div class="col-6">
-                                            <div class="form-group">
-                                                <label for="Grade_id">النوع : <span class="text-danger">*</span></label>
-                                                <select class="custom-select mr-sm-2" name="type" onchange="toggleOptions()">
-                                                    <option selected disabled> حدد الدرجة...</option>
-                                                    <option value="multiple_choice">Multiple Choice</option>
-                                                    <!-- <option value="true_false">True / False</option>
-                                                    <option value="short_answer">Short Answer</option>
-                                                </select>
-                                            </div>
-                                        </div> -->
-                                </div>
+    @if (session()->has('error'))
+        <div class="alert alert-danger alert-dismissible fade show mb-4" role="alert">
+            <i class="fas fa-exclamation-circle me-2"></i>
+            {{ session()->get('error') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    @endif
 
-                                <br>
-                                <button class="btn btn-success btn-sm nextBtn btn-lg pull-right" type="submit">حفظ
-                                    البيانات</button>
-                            </form>
-                        </div>
+    <div class="form-card">
+        <form action="{{ route('questions.store') }}" method="post" enctype="multipart/form-data">
+            @csrf
+            
+            <div class="form-group mb-4">
+                <label class="form-label">السؤال</label>
+                <textarea name="question" class="form-control" rows="4" required></textarea>
+            </div>
+            
+            <div class="form-group mb-4">
+                <label class="form-label">صورة السؤال (اختياري)</label>
+                <div class="file-upload">
+                    <i class="fas fa-cloud-upload-alt fa-2x text-muted mb-2"></i>
+                    <p class="mb-1">انقر لرفع الصورة</p>
+                    <small class="text-muted">JPG, PNG (الحجم الأقصى 2MB)</small>
+                    <input type="file" name="photo" class="d-none" id="fileUpload">
+                </div>
+                <div id="fileName" class="small text-muted mt-1"></div>
+            </div>
+            
+            @foreach (['a', 'b', 'c', 'd'] as $option)
+                <div class="option-container">
+                    <span class="option-label">الاختيار {{ strtoupper($option) }}</span>
+                    <textarea name="option_{{ $option }}" class="form-control" rows="2" required></textarea>
+                    <div class="radio-correct">
+                        <input type="radio" name="correct_answer" value="{{ $option }}" {{ $loop->first ? 'checked' : '' }}>
+                        <span>الإجابة الصحيحة</span>
                     </div>
                 </div>
+            @endforeach
+            
+            <div class="form-group mb-4">
+                <label class="form-label">شرح الإجابة</label>
+                <textarea name="explane_answer" class="form-control" rows="3"></textarea>
             </div>
-        </div>
+            
+            <div class="form-group mb-4">
+                <label class="form-label">ملاحظات (اختياري)</label>
+                <textarea name="notes" class="form-control" rows="2"></textarea>
+            </div>
+            
+            <div class="form-group mb-4">
+                <label class="form-label">المادة <span class="text-danger">*</span></label>
+                <select name="subject_id" class="form-select" required>
+                    <option value="" selected disabled>اختر المادة...</option>
+                    @foreach ($subjects as $subject)
+                        <option value="{{ $subject->id }}">{{ $subject->name }}</option>
+                    @endforeach
+                </select>
+            </div>
+            
+            <div class="text-center mt-4">
+                <button type="submit" class="btn btn-primary px-4">
+                    <i class="fas fa-save me-2"></i>حفظ السؤال
+                </button>
+            </div>
+        </form>
     </div>
-    <!-- row closed -->
-    {{-- <script>
-        function toggleOptions() {
-            const type = document.getElementById('questionType').value;
-            const optionsDiv = document.getElementById('optionsContainer');
-            optionsDiv.style.display = type === 'multiple_choice' ? 'block' : 'none';
-        }
-        toggleOptions();
-    </script> --}}
-@endsection
-@section('js')
+</div>
 
+@section('js')
+<script>
+    // File upload display
+    document.getElementById('fileUpload').addEventListener('change', function(e) {
+        const fileName = e.target.files[0]?.name || 'لم يتم اختيار ملف';
+        document.getElementById('fileName').textContent = fileName;
+    });
+    
+    // Click file upload area
+    document.querySelector('.file-upload').addEventListener('click', function() {
+        document.getElementById('fileUpload').click();
+    });
+</script>
 @endsection

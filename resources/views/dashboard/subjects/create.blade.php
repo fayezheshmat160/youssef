@@ -1,57 +1,36 @@
 @extends('dashboard.layouts.master')
-@section('title', 'Create Type')
-@section('css')
-    <style>
-        .row {
-            margin-top: 100px;
-        }
-    </style>
-
-@endsection
+@section('title', 'إضافة مادة جديدة')
 @section('content')
-
-    <!-- row -->
-   
-    <div class="row mt-10">
-        
-        <div class="col-md-12 mb-30">
-          
-            
-            <div class="card card-statistics h-100">
+<div class="container py-4">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow">
+                <div class="card-header bg-primary text-white">
+                    <h5 class="mb-0">
+                        <i class="fas fa-plus-circle me-2"></i>إضافة مادة جديدة
+                    </h5>
+                </div>
                 <div class="card-body">
-                    <h3 class="mb-4"> اضافه نوع جديد</h3>
-                    @if (session()->has('error'))
-                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                            <strong>{{ session()->get('error') }}</strong>
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
+                    <form action="{{ route('subjects.store') }}" method="POST">
+                        @csrf
+                        <div class="mb-3">
+                            <label for="name" class="form-label">اسم المادة</label>
+                            <input type="text" class="form-control" id="name" name="name" required>
                         </div>
-                    @endif
-                    <div class="col-xs-12">
-                        <div class="col-md-12">
-                            <br>
-                            <form action="{{ route('subjects.store') }}" method="post" autocomplete="off">
-                                @csrf
-
-                                <div class="form-row">
-                                    <div class="col">
-                                        <label for="title">نوع السؤال </label>
-                                        <input type="text" name="name" class="form-control">
-                                    </div>
-                                </div>
-                                <br>
-                                <button class="btn btn-success btn-sm nextBtn btn-lg pull-right" type="submit">حفظ
-                                    البيانات</button>
-                            </form>
+                        <div class="mb-3">
+                            <label class="form-label">النوع</label>
+                            <select class="form-select" name="type" required>
+                                <option value="لفظي">لفظي</option>
+                                <option value="كمي">كمي</option>
+                            </select>
                         </div>
-                    </div>
+                        <button type="submit" class="btn btn-success">
+                            <i class="fas fa-save me-1"></i> حفظ
+                        </button>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
-    <!-- row closed -->
-@endsection
-@section('js')
-
+</div>
 @endsection

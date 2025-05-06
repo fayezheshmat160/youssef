@@ -19,50 +19,6 @@ class StudentController extends Controller
         return view('student.student',compact('questions'));
     }
 
-//    public function toExam(){
-//
-//        $totalQuestions = 20;
-//        $subjectIds = Subject::has('questions')->pluck('id')->toArray();
-//        $subjectCount = count($subjectIds);
-//
-//        $basePerSubject = floor($totalQuestions / $subjectCount);
-//        $finalQuestions = collect();
-//        $totalCollected = 0;
-//
-//// 1️⃣ Collect as much as we can per subject
-//        foreach ($subjectIds as $subjectId) {
-//            $availableCount = Question::where('subject_id', $subjectId)->count();
-//            $take = min($basePerSubject, $availableCount);
-//
-//            $questions = Question::where('subject_id', $subjectId)
-//                ->inRandomOrder()
-//                ->take($take)
-//                ->get();
-//
-//            $finalQuestions = $finalQuestions->merge($questions);
-//            $totalCollected += $questions->count();
-//        }
-//
-//// 2️⃣ If total < 20, get the rest randomly from all remaining pool
-//        $remaining = $totalQuestions - $totalCollected;
-//
-//        if ($remaining > 0) {
-//            $alreadyCollectedIds = $finalQuestions->pluck('id')->toArray();
-//
-//            $extra = Question::whereNotIn('id', $alreadyCollectedIds)
-//                ->inRandomOrder()
-//                ->take($remaining)
-//                ->get();
-//
-//            $finalQuestions = $finalQuestions->merge($extra);
-//        }
-//
-//        $finalQuestions = $finalQuestions->shuffle(); // Optional: randomize full list again
-//        $questions = $finalQuestions;
-//
-//        return view('student.exame' , compact('questions'));
-//    }
-
     public function toExam(){
 
         $allQuestions = $this->getBalancedQuestions();
@@ -262,63 +218,6 @@ class StudentController extends Controller
             'message' => session('message'),
         ]);
     }
-//    public function submitExam(Request $request)
-//    {
-//        // التحقق من صحة المدخلات
-//        $validated = $request->validate([
-//            'student_id' => 'required|exists:users,id',
-//            'score' => 'required|integer',
-//            'correct_count' => 'required|integer',
-//            'total_questions' => 'required|integer',
-//        ]);
-//
-//        // حفظ النتيجة في قاعدة البيانات
-//        $examResult = ExamResult::create([
-//            'student_id' => $validated['student_id'],
-//            'score' => $validated['score'],
-//            'correct_count' => $validated['correct_count'],
-//            'total_questions' => $validated['total_questions'],
-//        ]);
-//
-//        // حفظ النتيجة في الجلسة
-//        session([
-//            'score' => $examResult->score,
-//            'total' => $examResult->total_questions,
-//            'correct_count' => $examResult->correct_count,
-//            'message' => "تمت الإجابة على " . $examResult->correct_count . " أسئلة بشكل صحيح."
-//        ]);
-//
-//        $score = session('score');
-//        $total = session('total');
-//        $correctCount = session('correct_count');
-//        $message = session('message');
-//
-//
-//
-//        return view('student.exam_result', compact('score', 'total', 'correctCount', 'message'));
-//        //return redirect()->route('exam.result');
-//        // إرسال استجابة JSON لواجهة المستخدم
-////        return response()->json([
-////            'success' => true,
-////            'message' => 'تم حفظ النتيجة بنجاح',
-////            'redirect_url' => route('exam.result') // لو حابب توجه المستخدم لصفحة النتيجة
-////        ]);
-//    }
-//
-//
-//    public function showResult()
-//    {
-//
-//        // استرجاع النتيجة من الجلسة
-//        $score = session('score');
-//        $total = session('total');
-//        $correctCount = session('correct_count');
-//        $message = session('message');
-//
-//
-//
-//        return view('student.exam_result', compact('score', 'total', 'correctCount', 'message'));
-//    }
 
 
 }

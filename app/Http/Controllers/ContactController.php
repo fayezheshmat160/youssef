@@ -1,39 +1,5 @@
 <?php
 
-// namespace App\Http\Controllers;
-
-// use App\Models\Contact;
-// use App\Models\Admin;
-// use App\Notifications\NewContactMessage;
-// use Illuminate\Http\Request;
-
-// class ContactController extends Controller
-// {
-//     public function showForm()
-//     {
-//         return view('contact'); // صفحة التواصل
-//     }
-
-//     public function submitForm(Request $request)
-//     {
-//         $request->validate([
-//             'name'    => 'required|string|max:255',
-//             'email'   => 'required|email',
-//             'message' => 'required|string|min:10',
-//         ]);
-
-//         $contact = Contact::create($request->only('name', 'email', 'message'));
-
-//         // إرسال الإشعار إلى كل الأدمنز
-//         $admins = \App\Models\Dashboard\Admin\Admin::all();
-//         foreach ($admins as $admin) {
-//             $admin->notify(new NewContactMessage($contact));
-//         }
-
-//         return back()->with('success', 'تم إرسال رسالتك بنجاح!');
-//     }
-// }
-
 namespace App\Http\Controllers;
 
 use App\Models\Ips;

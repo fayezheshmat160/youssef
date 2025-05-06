@@ -1,41 +1,59 @@
 @extends('dashboard.layouts.master')
-@section('title', 'types List')
-@section('css')
-@endsection
+@section('title', 'قائمة المواد')
 @section('content')
-    <div class="container my-5 shadow-lg p-4 bg-white">
-        <h3 class="mb-4">types List</h3>
-        <a href="{{ route('subjects.create') }}" class="btn btn-success btn-sm" role="button" aria-pressed="true">اضافة نوع
-            جديدة</a><br><br>
-        <table id="datatable" class="table  table-hover table-sm table-bordered p-0"
-            data-page-length="50"style="text-align: center">
-            <thead>
+<div class="container py-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h5 class="text-primary">
+            <i class="fas fa-book me-2"></i>قائمة المواد
+        </h5>
+        <a href="{{ route('subjects.create') }}" class="btn btn-success">
+            <i class="fas fa-plus me-1"></i>إضافة مادة جديدة
+        </a>
+    </div>
+
+    @if(session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+    @endif
+
+    <div class="table-responsive">
+        <table class="table table-hover">
+            <thead class="bg-light">
                 <tr>
                     <th>#</th>
                     <th>اسم المادة</th>
-                    <th>operation</th>
+                    <th>النوع</th>
+                    <th>الإجراءات</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach ($subjects as $subject)
-                    <tr>
-                        <td>{{ $loop->iteration }}</td>
-                        <td>{{ $subject->name }}</td>
-                        <td>
-                            <a href="{{ route('subjects.edit', $subject->id) }}" class="btn btn-sm btn-info">Edit</a>
-                            </form>
-                            <form action="{{ route('subjects.destroy', $subject) }}" method="POST" class="d-inline">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="btn btn-sm btn-outline-danger"
-                                    onclick="return confirm('Are you sure you want to delete this question?')">Delete</button>
-                            </form>
-                    </tr>
+                @foreach($subjects as $subject)
+                <tr>
+                    <td>{{ $loop->iteration }}</td>
+                    <td>{{ $subject->name }}</td>
+                    <td>
+                        <span class="badge {{ $subject->type == 'لفظي' ? 'bg-primary' : 'bg-info' }}">
+                            {{ $subject->type }}
+                        </span>
+                    </td>
+                    <td>
+                        <a href="{{ route('subjects.edit', $subject) }}" class="btn btn-sm btn-warning">
+                            <i class="fas fa-edit"></i> تعديل
+                        </a>
+                        <form action="{{ route('subjects.destroy', $subject) }}" method="POST" class="d-inline">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-sm btn-danger" 
+                                onclick="return confirm('هل أنت متأكد من الحذف؟')">
+                                <i class="fas fa-trash"></i> حذف
+                            </button>
+                        </form>
+                    </td>
+                </tr>
                 @endforeach
-        </table>
+            </tbody>
         </table>
     </div>
-@endsection
-@section('js')
-
+</div>
 @endsection
